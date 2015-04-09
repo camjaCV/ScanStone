@@ -1,13 +1,13 @@
-var hiModule = angular.module('headstone-cleaner', ['angularFileUpload']);
+var hiModule = angular.module('scanstone-demo', ['angularFileUpload']);
 
-hiModule.directive('headstoneCleaner', ['$http', '$upload', function($http, $upload){
+hiModule.directive('scanstoneDemo', ['$http', '$upload', function($http, $upload){
 	return {
 		restrict: 'A',
 		replace: true,
 		template: '<div>' +
 					'<div class="description">' +
 						'<div style="text-align: center">' +
-							'<h2>Headstone Cleaner</h2>' +
+							'<h2>ScanStone demo</h2>' +
 						'</div>' +
 						'<div ng-show="showDescription" align="left">' +
 							'<h3>Demo</h3>' +
@@ -87,7 +87,7 @@ hiModule.directive('headstoneCleaner', ['$http', '$upload', function($http, $upl
 			{
 				scope.showDescription = false;
 				scope.processing = true;
-				$http.post('/headstone-cleaner/rest/binarize?doOcr=' + scope.doOcr + '&doRegionImages=' + scope.doRegionImages + '&doAutoSegment=' + scope.doAutoSegment, scope.result.inputImage).
+				$http.post('/ScanStone/rest/binarize?doOcr=' + scope.doOcr + '&doRegionImages=' + scope.doRegionImages + '&doAutoSegment=' + scope.doAutoSegment, scope.result.inputImage).
 			    success(function(result, status, headers, config) {
 			    	scope.result = result;
 			    	scope.result.inputImage = result.originalPath.substr(result.originalPath.lastIndexOf('/') + 1);
@@ -120,7 +120,7 @@ hiModule.directive('headstoneCleaner', ['$http', '$upload', function($http, $upl
 		    	scope.hasResult = false;
 		    	
 				scope.upload = $upload.upload({
-					url: "/headstone-cleaner/rest/upload",
+					url: "/ScanStone/rest/upload",
 					file: file
 				}).success(function(data, status, headers, config){
 			    	document.images.original.src = data;
@@ -140,7 +140,7 @@ hiModule.directive('headstoneCleaner', ['$http', '$upload', function($http, $upl
 			};
 			
 			scope.getAvailableImages = function(){
-				$http.get('/headstone-cleaner/rest/inputImages').
+				$http.get('/ScanStone/rest/inputImages').
 				success(function(data, status, headers, config) {
 					scope.availableImages = data;
 				}).

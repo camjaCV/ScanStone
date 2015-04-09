@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.cameronchristiansen</groupId>
-	<artifactId>headstone-cleaner</artifactId>
+	<groupId>com.camjacv</groupId>
+	<artifactId>ScanStone</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -12,9 +12,21 @@
 	</properties>
 
 	<scm>
-		<developerConnection>scm:git:https://github.com/cameroncan/headstone-cleaner.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/camjaCV/ScanStone.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
+	
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>http://ec2-52-10-26-18.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://ec2-52-10-26-18.us-west-2.compute.amazonaws.com:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 
 	<dependencies>
 		<dependency>
@@ -87,6 +99,16 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<username>${tomcat.user}</username>
+					<password>${tomcat.password}</password>
+					<update>true</update>
 				</configuration>
 			</plugin>
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-antrun-plugin</artifactId> 

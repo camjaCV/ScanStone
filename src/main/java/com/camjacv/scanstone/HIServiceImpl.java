@@ -32,7 +32,7 @@ public class HIServiceImpl implements HIService {
 	
 	//private static final String INPUT_IMAGE_DIR = "data/input-images";
 	//private static final String OUTPUT_IMAGE_DIR = "data/output-images";
-	private static final String PATH_TO_WEBAPP = "webapps/headstone-cleaner";
+	private static final String PATH_TO_WEBAPP = "webapps/ScanStone";
 	private static Integer thresholdForAccess;
 	private static final int defaultThreshold = 10;
 	
