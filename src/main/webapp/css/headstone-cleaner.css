@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+img.resultImage,img.originalImage{
+	width: 400px;
+	height: auto;
+}
+
+div.resultImage{
+	display: inline-block;
+	border: dashed;
+}
+
+div.originalImage{
+	
+}
+
+.mainBody{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1024px;
+}
+
+.demo
+{
+	text-align: center;
+	border: solid;
+}
+
+.warn
+{
+	background-color: yellow;
+	border: 2px solid;
+    border-radius: 25px;
+    padding: 5px;
+    font-size: xx-large;
+}
